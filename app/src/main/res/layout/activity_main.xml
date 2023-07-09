@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/guide_h30"
+        app:layout_constraintGuide_percent="0.30"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/guide_v05"
+        app:layout_constraintGuide_percent="0.05"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/guide_h30"
+        android:src="@drawable/robot"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".9"
+        app:layout_constraintTop_toTopOf="@id/guide_h30"
+        app:layout_constraintBottom_toBottomOf="@id/guide_h30"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      android:text="ROBOT HAND"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/tv_robot"
+        app:layout_constraintStart_toStartOf="@id/guide_v05"
+        app:layout_constraintTop_toBottomOf="@id/guide_h30"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="20sp"
+        android:id="@+id/tv_name"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/guide_v05"
+        app:layout_constraintTop_toBottomOf="@id/tv_robot"
+        app:layout_constraintBaseline_toBaselineOf="@id/et_name"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="robot name"
+        android:id="@+id/et_name"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_robot"
+        app:layout_constraintStart_toEndOf="@id/barrier_s"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_features"
+        android:textSize="20sp"
+        android:text="Features"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/et_features"
+        app:layout_constraintStart_toStartOf="@id/guide_v05"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_features"
+        android:hint="features"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/barrier_s"
+        app:layout_constraintTop_toBottomOf="@id/et_name"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/barrier_s"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="tv_name, tv_features"/>
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_p"
+        app:layout_constraintTop_toBottomOf="@id/et_features"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AboutRobot"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PREV"
+        android:id="@+id/btn_p"
+        app:layout_constraintHorizontal_bias="100"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_n"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_n"
+        android:text="NEXT"
+        app:layout_constraintStart_toEndOf="@+id/btn_p"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
